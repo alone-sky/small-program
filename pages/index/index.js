@@ -1,7 +1,7 @@
 //index.js
 //获取应用实例
 const app = getApp()
-
+const api = require('../../api/server/home.js')
 Page({
   data: {
     motto: 'Hello World',
@@ -16,6 +16,7 @@ Page({
     })
   },
   onLoad: function () {
+    const promise = api.getCityLisg('guess');
     if (app.globalData.userInfo) {
       this.setData({
         userInfo: app.globalData.userInfo,

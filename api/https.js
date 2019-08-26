@@ -5,9 +5,9 @@ const url = require('./config.js');
   */
 class Http{
   request (params){
-    new Promise((resolve, reject)=>{
+    return new Promise((resolve, reject)=>{
       wx.request({
-        url: url.baseUrl + parmes.url,
+        url: url.baseUrl + params.url,
         data: params.data || null,
         method: params.method || 'GET',
         header: {
@@ -19,7 +19,7 @@ class Http{
           resolve(res);
          },
         fail: function (res) {
-          reject();
+          reject(res);
          },
         complete: function (res) { 
          
@@ -28,5 +28,6 @@ class Http{
     })
   }
 }
+const http = new Http();
 
-module.export={Http}
+module.exports=http;

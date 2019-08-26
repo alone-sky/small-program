@@ -10,7 +10,6 @@ const api={
   },
   personCenter:{
 
-  },
- 
-
+  }
 }
+module.exports = api;
